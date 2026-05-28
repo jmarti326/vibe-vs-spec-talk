@@ -22,12 +22,25 @@ function seedProducts(count = 500) {
   }
 }
 
-// Simulate a "slow" database query (150ms like a real production DB under load)
+// Simulate a "slow" database query with concurrency pressure
+// Under stampede conditions, each concurrent query adds latency (connection pool exhaustion)
+let activeQueries = 0;
+
 async function slowQuery(delayMs = 150) {
-  return new Promise((resolve) => {
+  activeQueries++;
+  const concurrencyPenalty = Math.min(activeQueries * 10, 500); // Simulate pool exhaustion
+  const totalDelay = delayMs + concurrencyPenalty;
+
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve([...products]);
-    }, delayMs);
+      activeQueries--;
+      // Simulate DB connection timeout under extreme load
+      if (totalDelay > 500) {
+        reject(new Error(`DB query timeout (${totalDelay}ms) - connection pool exhausted`));
+      } else {
+        resolve([...products]);
+      }
+    }, totalDelay);
   });
 }
 

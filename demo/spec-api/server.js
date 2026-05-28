@@ -13,9 +13,9 @@
 // ============================================================
 
 const express = require('express');
-const Redis = require('ioredis');
 const zlib = require('zlib');
 const { promisify } = require('util');
+const { getRedisWithFallback } = require('../shared/get-redis');
 const { slowQuery } = require('../shared/db');
 
 const gzip = promisify(zlib.gzip);
@@ -24,26 +24,11 @@ const gunzip = promisify(zlib.gunzip);
 const app = express();
 app.use(express.json());
 
-const redis = new Redis({
-  host: '127.0.0.1',
-  port: 6379,
-  maxRetriesPerRequest: 3,
-  retryStrategy(times) {
-    return Math.min(times * 50, 2000);
-  },
-  enableReadyCheck: true,
-  lazyConnect: true,
-});
-
-redis.connect().catch(() => {
-  console.warn('⚠️  Redis not available — will serve from DB with stale fallback');
-});
-
-const db = null; // Using in-memory store
 const PORT = process.env.PORT || 3002;
 const CACHE_TTL = 300;
 
 let dbHitCount = 0;
+let redis;
 
 // ─── SINGLEFLIGHT: Prevent cache stampede ───────────────────
 // Only ONE request fetches from DB; all others wait for that result.
@@ -184,9 +169,15 @@ app.post('/reset', async (req, res) => {
   res.json({ reset: true });
 });
 
-app.listen(PORT, () => {
-  console.log(`🛡️  SPEC-DRIVEN API running on port ${PORT}`);
-  console.log(`   Cache TTL: ${CACHE_TTL}s | Singleflight ✓ | Stale fallback ✓ | Compression ✓`);
-});
+async function start() {
+  redis = await getRedisWithFallback();
+
+  app.listen(PORT, () => {
+    console.log(`🛡️  SPEC-DRIVEN API running on port ${PORT}`);
+    console.log(`   Cache TTL: ${CACHE_TTL}s | Singleflight ✓ | Stale fallback ✓ | Compression ✓`);
+  });
+}
+
+start().catch(console.error);
 
 module.exports = app;
