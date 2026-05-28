@@ -157,7 +157,7 @@ const flaws = [
 ];
 flaws.forEach((flaw, i) => {
   const x = 0.5 + i * 4.2;
-  slide.addShape(pptx.ShapeType.roundRect, { x, y: 2.0, w: 3.8, h: 2.5, fill: { color: '2a1a1a' }, line: { color: 'f8717155', width: 1 }, rectRadius: 0.1 });
+  slide.addShape(pptx.ShapeType.roundRect, { x, y: 2.0, w: 3.8, h: 2.5, fill: { color: '2a1a1a' }, line: { color: 'f87171', width: 1 }, rectRadius: 0.1 });
   slide.addText(`${flaw.icon} ${flaw.title}`, { x, y: 2.2, w: 3.8, fontSize: 16, color: ACCENT_RED, bold: true, align: 'center', fontFace: 'Segoe UI' });
   slide.addText(flaw.desc, { x, y: 3.2, w: 3.8, fontSize: 13, color: SUBTLE_TEXT, align: 'center', fontFace: 'Segoe UI' });
 });
@@ -320,7 +320,7 @@ const features = [
 ];
 features.forEach((f, i) => {
   const x = 0.5 + i * 4.3;
-  slide.addShape(pptx.ShapeType.roundRect, { x, y: 2.5, w: 4.0, h: 2.8, fill: { color: '1a1a3e' }, line: { color: f.color + '55', width: 1 }, rectRadius: 0.1 });
+  slide.addShape(pptx.ShapeType.roundRect, { x, y: 2.5, w: 4.0, h: 2.8, fill: { color: '1a1a3e' }, line: { color: f.color, width: 1 }, rectRadius: 0.1 });
   slide.addText(`${f.icon}  ${f.title}`, { x, y: 2.7, w: 4.0, fontSize: 15, color: f.color, bold: true, align: 'center', fontFace: 'Segoe UI' });
   slide.addText(f.desc, { x, y: 3.5, w: 4.0, fontSize: 13, color: SUBTLE_TEXT, align: 'center', fontFace: 'Segoe UI' });
 });
@@ -351,14 +351,14 @@ slide.addText('TTL?  Invalidation strategy?  Stampede protection?  Fallback?  Ke
 // ═══════════════════════════════════════════════════════════════
 slide = darkSlide('Demo: The Showdown 🥊');
 // Left side - Vibe
-slide.addShape(pptx.ShapeType.roundRect, { x: 0.5, y: 1.5, w: 6, h: 4.5, fill: { color: '1a0a0a' }, line: { color: ACCENT_RED + '55', width: 1 }, rectRadius: 0.1 });
+slide.addShape(pptx.ShapeType.roundRect, { x: 0.5, y: 1.5, w: 6, h: 4.5, fill: { color: '1a0a0a' }, line: { color: ACCENT_RED, width: 1 }, rectRadius: 0.1 });
 slide.addText('⚡ Vibe Coding', { x: 0.5, y: 1.7, w: 6, fontSize: 20, color: ACCENT_RED, bold: true, align: 'center', fontFace: 'Segoe UI' });
 slide.addText('Prompt: "Add Redis caching\nto /products"\n\n✅ Code generated\n✅ Tests pass\n✅ Deployed\n🔥 200 concurrent requests...', {
   x: 0.8, y: 2.5, w: 5.5, fontSize: 15, color: SUBTLE_TEXT, fontFace: 'Segoe UI', lineSpacingMultiple: 1.3,
 });
 
 // Right side - Spec
-slide.addShape(pptx.ShapeType.roundRect, { x: 6.8, y: 1.5, w: 6, h: 4.5, fill: { color: '0a1a0a' }, line: { color: ACCENT_GREEN + '55', width: 1 }, rectRadius: 0.1 });
+slide.addShape(pptx.ShapeType.roundRect, { x: 6.8, y: 1.5, w: 6, h: 4.5, fill: { color: '0a1a0a' }, line: { color: ACCENT_GREEN, width: 1 }, rectRadius: 0.1 });
 slide.addText('🛡️ Spec-Driven (GSD)', { x: 6.8, y: 1.7, w: 6, fontSize: 20, color: ACCENT_GREEN, bold: true, align: 'center', fontFace: 'Segoe UI' });
 slide.addText('Spec: Singleflight + stale\nfallback + compression\n\n✅ Discussed edge cases\n✅ Planned with research\n✅ Executed + verified\n💪 200 concurrent requests...', {
   x: 7.1, y: 2.5, w: 5.5, fontSize: 15, color: SUBTLE_TEXT, fontFace: 'Segoe UI', lineSpacingMultiple: 1.3,
@@ -441,7 +441,7 @@ const costs = [
 costs.forEach((c, i) => {
   slide.addText(c, { x: 1.0, y: 2.0 + i * 0.8, w: 10, fontSize: 18, color: SUBTLE_TEXT, fontFace: 'Segoe UI' });
 });
-slide.addShape(pptx.ShapeType.roundRect, { x: 1.0, y: 5.0, w: 11, h: 1.2, fill: { color: '1a1a0a' }, line: { color: ACCENT_YELLOW + '55', width: 1 }, rectRadius: 0.1 });
+slide.addShape(pptx.ShapeType.roundRect, { x: 1.0, y: 5.0, w: 11, h: 1.2, fill: { color: '1a1a0a' }, line: { color: ACCENT_YELLOW, width: 1 }, rectRadius: 0.1 });
 slide.addText('💡 Minimum viable spec: Write 3 bullet points before your next AI prompt.\n     What should it do?  What should it NOT do?  How will you verify?', {
   x: 1.2, y: 5.1, w: 10.5, fontSize: 14, color: ACCENT_YELLOW, fontFace: 'Segoe UI',
 });
@@ -457,7 +457,7 @@ const levels = [
 ];
 levels.forEach((level, i) => {
   const x = 0.5 + i * 4.3;
-  slide.addShape(pptx.ShapeType.roundRect, { x, y: 1.8, w: 4.0, h: 4.0, fill: { color: '1a1a3e' }, line: { color: level.color + '44', width: 1 }, rectRadius: 0.1 });
+  slide.addShape(pptx.ShapeType.roundRect, { x, y: 1.8, w: 4.0, h: 4.0, fill: { color: '1a1a3e' }, line: { color: level.color, width: 1 }, rectRadius: 0.1 });
   slide.addText(`${level.emoji}  ${level.title}`, { x, y: 2.0, w: 4.0, fontSize: 16, color: level.color, bold: true, align: 'center', fontFace: 'Segoe UI' });
   level.items.forEach((item, j) => {
     slide.addText(`•  ${item}`, { x: x + 0.3, y: 2.8 + j * 0.7, w: 3.5, fontSize: 13, color: SUBTLE_TEXT, fontFace: 'Segoe UI' });
