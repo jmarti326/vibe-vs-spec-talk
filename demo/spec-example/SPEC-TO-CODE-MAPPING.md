@@ -1,9 +1,5 @@
 # 🎯 Spec → Code: The Mapping
 
-> Use this on stage to show HOW each spec line directly produced a code feature.
-
----
-
 ## The Vibe Prompt (what the AI got)
 
 ```
