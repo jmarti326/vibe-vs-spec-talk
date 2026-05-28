@@ -100,15 +100,15 @@ No syntax. No boilerplate. Just... vibes.
 
 ---
 
-# Demo: The Magic ✨
+# 🎶 Demo: Let's Vibe for a Second 🪩✨
 
 <div class="text-xl mb-4 opacity-70">
-"Build me a REST API with JWT auth, password hashing, and a protected /profile endpoint."
+"Build me a REST API with JWT auth, password hashing, and a protected /profile endpoint." 🎤🔥
 </div>
 
 <!-- Embed pre-recorded terminal here -->
 <div class="border border-gray-600 rounded-lg p-4 bg-gray-900 h-80 flex items-center justify-center">
-  <span class="text-gray-400 text-lg">[ Pre-recorded demo: 90 seconds ]</span>
+  <span class="text-gray-400 text-lg">[ 🎬 Pre-recorded demo: 90 seconds 🍿 ]</span>
 </div>
 
 <v-click>
