@@ -8,6 +8,9 @@
     "spec": "node spec-api/server.js",
     "both": "node run-both.js",
     "seed": "node shared/seed.js",
+    "demo:reset": "node -e \"const http=require('http');const r=u=>new Promise((y,n)=>{const q=http.request(u,{method:'POST'},s=>{s.on('data',()=>{});s.on('end',y)});q.on('error',n);q.end()});Promise.all([r('http://localhost:3001/reset'),r('http://localhost:3002/reset')]).then(()=>console.log('✅ Both APIs reset — ready for demo')).catch(()=>console.log('⚠️  Could not reset — are both servers running?'))\"",
+    "demo:single": "node load-tests/single.js",
+    "demo:compare": "node load-tests/compare.js",
     "test:stampede": "k6 run load-tests/stampede.js",
     "test:compare": "node load-tests/compare.js"
   },

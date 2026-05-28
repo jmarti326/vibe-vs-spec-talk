@@ -56,7 +56,12 @@ async function start() {
     } catch (err) {
       // BUG: If Redis is down, the entire endpoint fails.
       // No fallback, no stale serving, just a 500.
-      res.status(500).json({ error: err.message });
+      console.error(`💥 [VIBE-API] ${err.message}`);
+      res.status(500).json({
+        error: 'Service unavailable',
+        detail: err.message,
+        hint: 'No fallback configured — this is what your users see at 2 AM',
+      });
     }
   });
 

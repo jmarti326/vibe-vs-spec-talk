@@ -22,6 +22,11 @@ mdc: true
   </span>
 </div>
 
+<!--
+Welcome everyone! Take a breath. Make eye contact. Smile.
+"Hey everyone, I'm [name]. I love AI coding tools. I use them every day. And today I'm going to break one on stage."
+-->
+
 ---
 layout: center
 class: text-center
@@ -45,6 +50,13 @@ This is a <span class="text-green-400 font-bold">pro-discipline</span> talk.
 </div>
 
 </v-click>
+
+<!--
+Wait for hands. Count silently. "Wow, that's a lot."
+Second question: pause dramatically as hands drop.
+Third reveal: this line is your thesis statement. Say it with conviction.
+"I ship more code with AI than without. The question is HOW."
+-->
 
 ---
 layout: section
@@ -205,6 +217,12 @@ layout: quote
 The cache stampede took down the checkout flow.
 
 Your **'fast' feature** just cost the company **$50K in lost revenue**."
+
+<!--
+Slow down here. Lower your voice. Make this feel personal.
+"This isn't hypothetical. This happened to a team I know."
+Let it breathe. 3-second pause after "$50K in lost revenue."
+-->
 
 ---
 
@@ -400,9 +418,22 @@ Same database. Same Redis. Same 200 requests. Different approach.
   <span class="text-gray-400 text-lg">[ LIVE: node load-tests/compare.js ]</span>
 </div>
 
+<!--
+SWITCH TO TERMINAL NOW.
+1. Run: npm run demo:reset (clean state)
+2. Run: node load-tests/single.js (show happy path first!)
+3. Say: "Both work perfectly. Same 500 products. Same 200 OK. Now watch..."
+4. Run: node load-tests/compare.js
+5. Let the results speak. Pause. Let audience react.
+6. Say: "Same AI. Same model. Same developer. The difference? A spec."
+SWITCH BACK TO SLIDES.
+-->
+
 ---
 
 # Results
+
+<v-clicks>
 
 | Aspect | ⚡ Vibe Coding | 🛡️ Spec-Driven |
 |--------|:---:|:---:|
@@ -412,6 +443,8 @@ Same database. Same Redis. Same 200 requests. Different approach.
 | Verification | "It compiles" | Structured |
 | DB hits under stampede | 200 💥 | 1 ✅ |
 | Sleep quality | 💀 | 😴 |
+
+</v-clicks>
 
 <v-click>
 
@@ -583,13 +616,19 @@ class: text-center
 Thank you! Questions?
 </div>
 
+<!--
+Say "funner" with a smile — it's intentionally casual.
+"Thank you. I'd love to hear YOUR horror stories or wins. Questions?"
+Stay available after for hallway conversations — that's where the real impact happens.
+-->
+
 ---
 layout: end
 ---
 
 # Links & Resources
 
-- 📊 Slides + Demo: github.com/[your-handle]/vibe-vs-spec-talk
+- 📊 Slides + Demo: github.com/jmarti326/vibe-vs-spec-talk
 - 🔧 GSD: github.com/open-gsd/get-shit-done-redux
 - 📖 StackOverflow Blog: "Are bugs inevitable with AI coding agents?"
 - 📖 ACM: "AI Vibe Coding Could Reshape Software Dev"
