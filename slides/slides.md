@@ -210,6 +210,20 @@ Error → retry instantly → infinite loop → cascading failure across service
 layout: quote
 ---
 
+# "Cognitive surrender is when you stop thinking altogether and blindly accept the answer the AI gives you"
+
+— Addy Osmani (@addyosmani)
+
+<!--
+"Addy Osmani — engineering lead at Google Chrome — called this 'cognitive surrender.' 
+That's exactly what vibe coding becomes when we stop questioning the output.
+And THAT is when prod breaks."
+-->
+
+---
+layout: quote
+---
+
 # The 2 AM Story
 
 "Friday evening. You shipped a feature built in 20 minutes with AI. Saturday 2 AM, your phone rings.
